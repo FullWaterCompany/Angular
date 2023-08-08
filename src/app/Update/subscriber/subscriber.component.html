@@ -1,0 +1,12 @@
+<div class="smallForm" *ngIf="show">
+<form [formGroup]="profileForm">
+
+    <mat-form-field class="example-full-width" >
+        <mat-label>SubscriperNo</mat-label>
+        <input matInput id="Subscriber_No" formControlName="Subscriber_No">
+      </mat-form-field>
+  
+      <button mat-button class="submit" (click)="submit()">Submit</button>
+  
+  </form>
+</div>
