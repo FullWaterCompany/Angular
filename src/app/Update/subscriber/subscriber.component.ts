@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Supscriper } from '../../Core/_Models/supscriper';
 import { SupscriperService } from '../../Core/_Services/supscriper.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,14 +12,29 @@ import Swal from 'sweetalert2';
 export class SubscriberComponent {
   subscribers: Supscriper[] = [];
   subscriperNo: string | null;
+  testform: FormGroup;
   show: boolean = true;
-  constructor(public supscriberService: SupscriperService) {}
+  formData: Supscriper;
+  constructor(
+    public supscriberService: SupscriperService,
+    public fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.supscriberService.getAll().subscribe((data) => {
       this.subscribers = data;
       console.log(this.subscribers);
     });
+
+    this.testform = this.fb.group({
+      id: [''],
+      name: [''],
+      city: [''],
+      area: [''],
+      mobile: [''],
+      notes: [''],
+    });
+    this.submit();
   }
 
   profileForm = new FormGroup({
@@ -31,6 +46,8 @@ export class SubscriberComponent {
     this.supscriberService.getById(this.subscriperNo).subscribe({
       next: (data) => {
         console.log(data);
+        this.show=!this.show;
+        this.showForm(data);
       },
       error: () => {
         Swal.fire({
@@ -40,5 +57,49 @@ export class SubscriberComponent {
         });
       },
     });
+  }
+
+  showForm(data: any) {
+    this.formData = data;
+
+    this.testform.patchValue({
+      id: data.id,
+      name: data.name,
+      city: data.city,
+      mobile: data.mobile,
+      area: data.area,
+      notes: data.notes,
+    });
+  }
+
+  updateUser(testform: FormGroup) {
+    let userData: Supscriper = {    // Initialize userData object
+      id: '',
+      name: '',
+      area: '',
+      mobile: '',
+      city: '',
+      notes: ''
+    };
+    userData.id = testform.value.id;
+
+    userData.name = testform.value.name;
+    userData.area = testform.value.area;
+    userData.mobile = testform.value.mobile;
+    userData.city = testform.value.city;
+    userData.notes = testform.value.notes;
+    this.supscriberService
+      .updateSubscriper(this.subscriperNo, userData)
+      .subscribe((res) => {
+        console.log(res);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Supscriper Updated Successfully',
+          showConfirmButton: true,
+          confirmButtonText: 'OK',
+        })
+      });
+      this.testform.reset();
   }
 }

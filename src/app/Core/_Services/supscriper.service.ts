@@ -29,10 +29,20 @@ export class SupscriperService {
        
         return data;
      }),
-      // catchError((err) => {
-      //   console.error(err);
-      //   throw err;
-      // })
+    );
+  }
+
+
+  updateSubscriper(id:string | null,subscribe:Supscriper): Observable<Supscriper> {
+    return this.http.put<Supscriper>(this.baseURL+'/'+id+'/',subscribe).pipe(
+      map((data) => {
+        //You can perform some transformation here
+        return data;
+     }),
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      })
     );
   }
 }

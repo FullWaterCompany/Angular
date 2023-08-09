@@ -4,6 +4,7 @@ import {ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button'
+import {MatSelectModule} from '@angular/material/select';
 
 import { UpdateRoutingModule } from './update-routing.module';
 import { SubscriberComponent } from './subscriber/subscriber.component';
@@ -17,7 +18,8 @@ import { SubscriberComponent } from './subscriber/subscriber.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   exports:[SubscriberComponent]
 })
