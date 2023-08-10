@@ -11,9 +11,9 @@ import Swal from 'sweetalert2';
 })
 export class SubscriberComponent {
   subscribers: Supscriper[] = [];
-  subscriperNo: string | null;
+  subscriperNo: string;
   testform: FormGroup;
-  show: boolean = true;
+  show: boolean = false;
   formData: Supscriper;
   constructor(
     public supscriberService: SupscriperService,
@@ -34,7 +34,6 @@ export class SubscriberComponent {
       mobile: [''],
       notes: [''],
     });
-    this.submit();
   }
 
   profileForm = new FormGroup({
@@ -42,21 +41,31 @@ export class SubscriberComponent {
   });
 
   submit() {
-    this.subscriperNo = this.profileForm.controls['Subscriber_No'].value;
-    this.supscriberService.getById(this.subscriperNo).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.show=!this.show;
-        this.showForm(data);
-      },
-      error: () => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Not Valid Number!',
-        });
-      },
-    });
+    this.subscriperNo = this.profileForm.controls['Subscriber_No']
+      .value?.trim() as string;
+      console.log(this.subscriperNo)
+    if (this.subscriperNo.length > 0) {
+      this.supscriberService.getById(this.subscriperNo).subscribe({
+        next: (data) => {
+          console.log(data);
+          this.show = !this.show;
+          this.showForm(data);
+        },
+        error: () => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Not Valid Number!',
+          });
+        },
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Not Valid Number!',
+      });
+    }
   }
 
   showForm(data: any) {
@@ -73,13 +82,14 @@ export class SubscriberComponent {
   }
 
   updateUser(testform: FormGroup) {
-    let userData: Supscriper = {    // Initialize userData object
+    let userData: Supscriper = {
+      // Initialize userData object
       id: '',
       name: '',
       area: '',
       mobile: '',
       city: '',
-      notes: ''
+      notes: '',
     };
     userData.id = testform.value.id;
 
@@ -98,8 +108,8 @@ export class SubscriberComponent {
           title: 'Supscriper Updated Successfully',
           showConfirmButton: true,
           confirmButtonText: 'OK',
-        })
+        });
       });
-      this.testform.reset();
+    this.testform.reset();
   }
 }

@@ -23,17 +23,21 @@ export class SupscriperService {
     );
   }
 
-  getById(id:string ): Observable<Supscriper> {
+  getById(id:string | null): Observable<Supscriper> {
     return this.http.get<Supscriper>(this.baseURL+'/' + id).pipe(
       map((data) => {
        
         return data;
      }),
+     catchError((err) => {
+      console.error(err);
+      throw err;
+    })
     );
   }
 
 
-  updateSubscriper(id:string,subscribe:Supscriper): Observable<Supscriper> {
+  updateSubscriper(id:string | null,subscribe:Supscriper): Observable<Supscriper> {
     return this.http.put<Supscriper>(this.baseURL+'/'+id+'/',subscribe).pipe(
       map((data) => {
         //You can perform some transformation here

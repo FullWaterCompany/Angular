@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule} from '@angular/material/toolbar';
 
 import { SharedRoutingModule } from './shared-routing.module';
-import { HeaderComponent } from './Header/header.component';
+import { HeaderComponent } from './Home/header.component';
 
 
 @NgModule({

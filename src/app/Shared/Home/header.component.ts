@@ -23,9 +23,7 @@ export class HeaderComponent {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  // shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(
-  //   window.location.host
-  // );
+
 }
 
 
