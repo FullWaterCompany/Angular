@@ -7,7 +7,7 @@ import { Observable, catchError, map } from 'rxjs';
   providedIn: 'root',
 })
 export class RealStateService {
-  baseURL: string = 'http://localhost:8080/api/RealState';
+  baseURL: string = 'https://localhost:44375/api/realState';
 
   constructor(public http: HttpClient) {}
   getAll(): Observable<RealState[]> {
@@ -22,7 +22,7 @@ export class RealStateService {
     );
   }
 
-  getById(id: string | null): Observable<RealState> {
+  getById(id: number): Observable<RealState> {
     return this.http.get<RealState>(this.baseURL + '/' + id).pipe(
       map((data) => {
         return data;
@@ -31,7 +31,7 @@ export class RealStateService {
   }
 
   updateSubscriper(
-    id: string | null,
+    id: number ,
     RealState: RealState
   ): Observable<RealState> {
     return this.http

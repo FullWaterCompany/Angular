@@ -1,0 +1,69 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .submit {
+    background-color: #3f51b5;
+    color: white !important;
+  }
+  
+  .smallForm {
+    text-align: center;
+    width: 500px;
+    height: 400px;
+    background-color: rgb(121, 221, 221);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+  }
+
+  .container .bigForm{
+    background-image: url('../../../assets/Images/drops-6392473_1920.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+
+  }
+  .form {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+  
+  .form .real mat-form-field {
+    width: 300px;
+    margin: 5px;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .image {
+    display: inline;
+    width: 500px;
+  }
+  
+  .form .real button {
+    display: block;
+    margin: 0;
+    position: relative;
+    /* top: 50%; */
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  

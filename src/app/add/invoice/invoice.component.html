@@ -1,0 +1,93 @@
+<div class="smallForm" *ngIf="!show">
+  <form [formGroup]="profileForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Subscription_No</mat-label>
+      <input matInput id="Subscription_No" formControlName="Subscription_No" />
+    </mat-form-field>
+
+    <button mat-button class="submit" (click)="submit()">Submit</button>
+  </form>
+</div>
+
+<div class="container">
+  <div
+
+    *ngIf="show"
+    class="row bigForm justify-content-center align-items-center mt-4 mb-5 p-2 "
+  >
+    <div class="col-md-6 p-2 form">
+      <form
+        [formGroup]="testform"
+        class="real pt-3"
+        *ngIf="formData"
+        (ngSubmit)="save(testform)"
+      >
+        <mat-form-field>
+          <mat-label>subscriptionNo</mat-label>
+          <input
+            readonly
+            matInput
+            name="subscriptionNo"
+            formControlName="subscriptionNo"
+            value="{{ formData.subscriptionNo }}"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>subscriberNo</mat-label>
+          <input
+            matInput
+            name="subscriberNo"
+            formControlName="subscriberNo"
+            value="{{ formData.subscriberNo }}"
+          />
+        </mat-form-field>
+        <br />
+        <mat-label>Is There Sanitation</mat-label>
+        <mat-radio-button value="True" [checked]="formData.isThereSanitation "
+          >Yes</mat-radio-button
+        >
+        <mat-radio-button value="False" [checked]="!formData.isThereSanitation"
+          >No</mat-radio-button
+        >
+
+        <br />
+        <mat-form-field>
+          <mat-label>previousConsumption</mat-label>
+          <input
+            matInput
+            name="previousConsumption"
+            formControlName="previousConsumption"
+            value="{{ formData.previousConsumption }}"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>currentConsumption</mat-label>
+          <input
+           
+            matInput
+            name="currentConsumption"
+            formControlName="currentConsumption"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>serviceFee</mat-label>
+          <input
+            
+            matInput
+            name="serviceFee"
+            formControlName="serviceFee"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>taxRate</mat-label>
+          <input  matInput name="taxRate" formControlName="taxRate" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Notes</mat-label>
+          <textarea matInput name="notes" formControlName="notes"></textarea>
+        </mat-form-field>
+        <button type="submit" [disabled]="!testform.valid" name="submit" class="btn submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

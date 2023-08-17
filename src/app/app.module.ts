@@ -6,13 +6,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import{SharedModule} from './Shared/shared.module'
-import {UpdateModule} from './Update/update.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { SharedModule } from './Shared/shared.module';
+import { UpdateModule } from './Update/update.module';
+import { ReportsModule } from './reports/reports.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,SharedModule,UpdateModule,HttpClientModule,RouterModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    UpdateModule,
+    HttpClientModule,
+    RouterModule,
+    NgbModule,
+    ReportsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

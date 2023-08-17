@@ -1,0 +1,25 @@
+.mat-mdc-form-field {
+  font-size: 14px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
+  font-weight: bolder;
+}
+.color-1 {
+  background-color: #90f7f79c;
+}
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+.fonts {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+h4 {
+  color: rgb(90, 80, 235);
+  text-align: center;
+  text-shadow: 1px 1px;
+  font-weight: bold;
+}
+
+.custom-disabled {
+  opacity: 1;
+}

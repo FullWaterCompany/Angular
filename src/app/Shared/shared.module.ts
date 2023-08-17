@@ -6,11 +6,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule} from '@angular/material/toolbar';
 
 import { SharedRoutingModule } from './shared-routing.module';
-import { HeaderComponent } from './Home/header.component';
+import { HeaderComponent } from './Header/header.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
-  declarations: [ HeaderComponent],
+  declarations: [ HeaderComponent, HomePageComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,
@@ -20,7 +21,7 @@ import { HeaderComponent } from './Home/header.component';
     MatToolbarModule
   ],
   exports:[
-    HeaderComponent
+    HeaderComponent,HomePageComponent
   ]
 })
 export class SharedModule { }

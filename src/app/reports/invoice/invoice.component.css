@@ -1,0 +1,77 @@
+.mat-mdc-form-field {
+    font-size: 14px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
+    font-weight: bolder;
+   
+  }
+  .mdc-text-field{
+width: 200px !important;
+  }
+  .color-1 {
+    background-color: #90f7f79c;
+  }
+  .table {
+    width: 100%;
+    overflow-x: auto;
+    text-align: center;
+  }
+  .fonts {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  h4 {
+    color: rgb(90, 80, 235);
+    text-align: center;
+    text-shadow: 1px 1px;
+    font-weight: bold;
+  }
+  
+  .custom-disabled {
+    opacity: 1;
+  }
+  mat-cell:nth-child(1),
+mat-header-cell:nth-child(1) {
+    flex: 0 0 30%;
+}
+
+.mat-table__wrapper .mat-table {
+  min-width: auto !important;
+  width: 100% !important;
+}
+
+.mat-header-row {
+  width: 100%;
+}
+
+.mat-row {
+  width: 100%;
+}
+.mat-column-id {
+  flex: 0 0 25% !important;
+  min-width: 110px !important;
+}
+.mat-column-to {
+  flex: 0 0 25% !important;
+  min-width: 110px !important;
+}
+.mat-column-date {
+  flex: 0 0 25% !important;
+  min-width: 110px !important;
+}
+.mat-column-from {
+  flex: 0 0 25% !important;
+  min-width: 110px !important;
+}
+.mdc-data-table__cell{
+  text-align: center;
+}
+.mat-mdc-table .mat-mdc-header-cell{
+background-color: rgb(139, 139, 241);
+align-items: center;
+}
+.mat-sort-header-container{
+  text-align: center;
+}
+
+
+
+  

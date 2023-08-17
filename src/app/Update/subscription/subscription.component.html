@@ -16,7 +16,10 @@
     class="row justify-content-center align-items-center mt-4 mb-5"
   >
     <div class="col-lg-4 col-md-4 col-sm-12">
-      <img src="../../../assets/Images/Email capture.gif" class="image img-fluid" />
+      <img
+        src="../../../assets/Images/Email capture.gif"
+        class="image img-fluid"
+      />
     </div>
     <div class="col-lg-5 col-md-6 col-sm-12 form">
       <form
@@ -27,7 +30,8 @@
       >
         <mat-form-field>
           <mat-label>Id</mat-label>
-          <input readonly
+          <input
+            readonly
             matInput
             name="id"
             formControlName="id"
@@ -36,7 +40,7 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>subscriberCode</mat-label>
-          <input 
+          <input
             matInput
             name="subscriberCode"
             formControlName="subscriberCode"
@@ -49,22 +53,28 @@
             formControlName="realStateType"
             (selectionChange)="onChange($event)"
           >
-            <mat-option
-              *ngFor="let option of realState"
-              [value]="option.id"
-          
-            >
+            <mat-option *ngFor="let option of realState" [value]="option.id">
               {{ option.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-       <br>
-        <mat-radio-group aria-label="Select an option"  formControlName="subscriberCode" (change)="check($event)" >
+        <br />
+        <mat-radio-group
+          aria-label="Select an option"
+          formControlName="subscriberCode"
+          (change)="check($event)"
+        >
           <mat-label>Is There Sanitation</mat-label>
-          <mat-radio-button value="True" [checked]="formData.isThereSanitation" >Yes</mat-radio-button>
-          <mat-radio-button value="False" [checked]="!formData.isThereSanitation">No</mat-radio-button>
+          <mat-radio-button value="True" [checked]="formData.isThereSanitation"
+            >Yes</mat-radio-button
+          >
+          <mat-radio-button
+            value="False"
+            [checked]="!formData.isThereSanitation"
+            >No</mat-radio-button
+          >
         </mat-radio-group>
-        <br>
+        <br />
         <mat-form-field>
           <mat-label>unitNo</mat-label>
           <input

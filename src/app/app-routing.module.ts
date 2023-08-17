@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from './Shared/shared.module';
-import { SubscriberComponent } from './Update/subscriber/subscriber.component';
-import { UpdateModule } from './Update/update.module';
+import { HomePageComponent } from './Shared/home-page/home-page.component';
 
 
 const routes: Routes = [
 
     { path: 'update', loadChildren: () => import('./Update/update.module').then(m => m.UpdateModule) },
+    { path: 'add', loadChildren: () => import('./add/add.module').then(m => m.AddModule) },
+    { path: 'reports', loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule) },
+    { path: '', component:HomePageComponent },
 
 
 ];

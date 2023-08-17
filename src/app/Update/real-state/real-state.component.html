@@ -1,1 +1,47 @@
-<p>real-state works!</p>
+<div class="container">
+  <div class="smallForm row text-center mt-4 p-3">
+    <form [formGroup]="profileForm">
+      <mat-form-field>
+        <mat-select
+          placeholder="Select your option"
+          (selectionChange)="onChange($event)"
+        >
+          <mat-option *ngFor="let option of realState" [value]="option.id">
+            {{ option.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="row bigForm justify-content-center align-items-center mt-4 mb-5">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <img
+        src="../../../assets/Images/Email capture.gif"
+        class="image img-fluid"
+      />
+    </div>
+    <div class="col-lg-5 col-md-6 col-sm-12 form">
+      <form
+        [formGroup]="testform"
+        class="real pt-3"
+        (ngSubmit)="updateUser(testform)"
+      >
+        <mat-form-field>
+          <mat-label>Id</mat-label>
+          <input readonly matInput name="id" formControlName="id" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>name</mat-label>
+          <input matInput name="name" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Notes</mat-label>
+          <textarea matInput name="notes" formControlName="notes"></textarea>
+        </mat-form-field>
+        <button type="submit" name="submit" class="btn submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
