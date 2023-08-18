@@ -1,0 +1,299 @@
+<div class="container">
+  <div class="row m-3 justify-content-center d-flex align-items-center ">
+    <h4>Invoice inquiry</h4>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="mt-5">
+      <mat-form-field MatFormFieldControl="InvoiceNO" class="width">
+        <mat-label for="InvoiceNO">Invoice NO </mat-label>
+        <input
+          matInput
+          
+          id="InvoiceNO"
+          type="text"
+          formControlName="InvoiceNO"
+        />
+      </mat-form-field>
+      <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+  </div>
+  <div class="row mt-5"  *ngIf="show">
+    <div class="mat-elevation-z8 table col-sm-12 body-2">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header mat-column-id>
+            ID
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.id }}
+          </td>
+        </ng-container>
+
+        <!-- subscriberNo Column -->
+        <ng-container matColumnDef="subscriberNo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Subscriber Code
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.subscriberNo }}
+          </td>
+        </ng-container>
+
+        <!-- subscriptionNo Column -->
+        <ng-container matColumnDef="subscriptionNo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Subscriber Code
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.subscriptionNo }}
+          </td>
+        </ng-container>
+
+        <!-- date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header mat-column-date>
+            Date
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.date | date : "y-MM-dd" }}
+          </td>
+        </ng-container>
+        <!-- from Column -->
+        <ng-container matColumnDef="from">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header mat-column-from>
+            From
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.from | date : "y-MM-dd" }}
+          </td>
+        </ng-container>
+        <!-- to Column -->
+        <ng-container matColumnDef="to">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header mat-column-to>
+            To
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.to | date : "y-MM-dd" }}
+          </td>
+        </ng-container>
+        <!-- previousConsumption Column -->
+        <ng-container matColumnDef="previousConsumption">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Previous Consumption
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.previousConsumption }}
+          </td>
+        </ng-container>
+        <!-- currentConsumption Column -->
+        <ng-container matColumnDef="currentConsumption">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Current Consumption
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.currentConsumption }}
+          </td>
+        </ng-container>
+        <!-- amountConsumption Column -->
+        <ng-container matColumnDef="amountConsumption">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Amount Consumption
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.amountConsumption }}
+          </td>
+        </ng-container>
+        <!-- serviceFee Column -->
+        <ng-container matColumnDef="serviceFee">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>serviceFee</th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.serviceFee }}
+          </td>
+        </ng-container>
+        <!-- taxRate Column -->
+        <ng-container matColumnDef="taxRate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>TaxRate</th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.taxRate }}%
+          </td>
+        </ng-container>
+        <!-- consumptionValue Column -->
+        <ng-container matColumnDef="consumptionValue">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Consumption Value
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.consumptionValue }}
+          </td>
+        </ng-container>
+
+        <!-- wastewaterConsumption Column -->
+        <ng-container matColumnDef="wastewaterConsumption">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Waste water Consumption
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.wastewaterConsumption }}
+          </td>
+        </ng-container>
+        <!-- totalInvoice Column -->
+        <ng-container matColumnDef="totalInvoice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Total Invoice
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.totalInvoice }}
+          </td>
+        </ng-container>
+        <!-- taxValue Column -->
+        <ng-container matColumnDef="taxValue">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>taxValue</th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.taxValue }}
+          </td>
+        </ng-container>
+        <!-- totalBill Column -->
+        <ng-container matColumnDef="totalBill">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Bill</th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.totalBill }}
+          </td>
+        </ng-container>
+        <!-- realStateType Column -->
+        <ng-container matColumnDef="realStateType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            RealState Type
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            <ng-container *ngIf="row.realStateType">
+              {{ getRealStateTypeName(row.realStateType) }}
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <!-- isThereSanitation Column  -->
+        <ng-container matColumnDef="isThereSanitation">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Is There Sanitation
+          </th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            <mat-slide-toggle
+              class="custom-disabled"
+              [disabled]="true"
+              color="red"
+              checked="{{ row.isThereSanitation }}"
+            ></mat-slide-toggle>
+          </td>
+        </ng-container>
+
+        <!-- Notes Column -->
+        <ng-container matColumnDef="notes">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Notes</th>
+          <td
+            mat-cell
+            class="mat-body fonts"
+            *matCellDef="let row; let rowIndex = index"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
+          >
+            {{ row.notes }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+      </table>
+    </div>
+  </div>
+</div>
