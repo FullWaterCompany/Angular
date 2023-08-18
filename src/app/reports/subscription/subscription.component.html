@@ -22,7 +22,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.id }}
           </td>
@@ -37,7 +37,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.subscriberCode }}
           </td>
@@ -51,7 +51,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             <ng-container *ngIf="row.realStateType">
               {{ getRealStateTypeName(row.realStateType) }}
@@ -66,7 +66,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.unitNo }}
           </td>
@@ -81,7 +81,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             <mat-slide-toggle
               class="custom-disabled"
@@ -99,7 +99,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.lastReading }}
           </td>
@@ -112,7 +112,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.notes }}
           </td>

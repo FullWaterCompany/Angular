@@ -1,0 +1,16 @@
+.color {
+  background-color: rgba(118, 252, 245, 0.205);
+}
+h3 {
+  display: inline-block;
+  color: blue;
+  font-family: monospace;
+  font-weight: bolder;
+}
+h5 {
+  color: blue;
+  font-family: monospace;
+  font-weight: bold;
+  /* margin-left: 70px; */
+}
+

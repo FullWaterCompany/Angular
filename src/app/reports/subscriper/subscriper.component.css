@@ -19,3 +19,7 @@ h4{
   text-shadow: 1px 1px;
   font-weight: bold;
 }
+.mat-mdc-table .mat-mdc-header-cell{
+  background-color: rgb(139, 139, 241);
+  align-items: center;
+  }

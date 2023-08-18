@@ -21,7 +21,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.id }}
           </td>
@@ -34,7 +34,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.name }}
           </td>
@@ -47,7 +47,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.city }}
           </td>
@@ -60,7 +60,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.area }}
           </td>
@@ -73,7 +73,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.mobile }}
           </td>
@@ -86,7 +86,7 @@
             mat-cell
             class="mat-body fonts"
             *matCellDef="let row; let rowIndex = index"
-            [ngClass]="{ 'color-1': rowIndex % 2 === 0 }"
+            [ngClass]="{ 'color-1': rowIndex % 2 !== 0 }"
           >
             {{ row.notes }}
           </td>

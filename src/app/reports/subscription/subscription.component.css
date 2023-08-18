@@ -23,3 +23,7 @@ h4 {
 .custom-disabled {
   opacity: 1;
 }
+.mat-mdc-table .mat-mdc-header-cell{
+  background-color: rgb(139, 139, 241);
+  align-items: center;
+  }
