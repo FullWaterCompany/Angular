@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('../src/assets/Fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .custom-font {
+    font-family: 'Dancing Script', cursive;
+  }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

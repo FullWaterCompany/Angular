@@ -9,7 +9,6 @@ import { RealState } from 'src/app/Core/_Models/RealState';
 import { Invoice } from 'src/app/Core/_Models/Invoice';
 import { InvoiceService } from 'src/app/Core/_Services/Invoice';
 import { FormControl, FormGroup } from '@angular/forms';
-import { formatDate } from '@angular/common';
 
 import { Inject, LOCALE_ID } from '@angular/core';
 import Swal from 'sweetalert2';

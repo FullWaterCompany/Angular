@@ -60,6 +60,8 @@ export class InvoiceComponent {
   realStates: RealState[] = [];
   invoices: Invoice[] = [];
   data: Invoice[] = [];
+  invoice:Invoice
+
   ngOnInit() {
     this.invoiceService.getAll().subscribe((data) => {
       this.invoices = data;
@@ -74,6 +76,26 @@ export class InvoiceComponent {
         this.dataSource.sort = this.sort;
       });
     });
+    const savedInvoiceData = localStorage.getItem('invoiceData');
+
+    if (savedInvoiceData !== null) {
+      const savedInvoice = JSON.parse(savedInvoiceData);
+      console.log('Saved Invoice:', savedInvoice);
+      this.invoiceService.getAll().subscribe(data=>{
+        const matchingInvoice = data.find(
+          e => e.date === savedInvoice.date && e.subscriberNo === savedInvoice.subscriberNo
+        );
+        
+        if (matchingInvoice) {
+          this.invoice = matchingInvoice;
+          console.log(this.invoice)
+        } else {
+          console.log('No matching invoice found.');
+        }
+      })
+    } else {
+      console.log('No saved invoice data found.');
+    }
   }
 
   applyFilter(event: Event) {
@@ -103,5 +125,6 @@ export class InvoiceComponent {
     console.log(this.data);
 
     this.dataSource = new MatTableDataSource(this.data);
-  }
-}
+  }}
+
+

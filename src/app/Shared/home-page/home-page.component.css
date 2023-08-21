@@ -1,10 +1,10 @@
 .color {
   background-color: rgba(118, 252, 245, 0.205);
 }
-h3 {
+h2 {
   display: inline-block;
   color: blue;
-  font-family: monospace;
+
   font-weight: bolder;
 }
 h5 {
